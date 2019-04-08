@@ -336,7 +336,7 @@ MonoBehaviour:
   noiseSpeed: 10
   noiseForce: 0.2
   normalForce: 0.2
-  dampening: 0.99
+  dampening: 0.9
   upForce: 0
   bones: {fileID: 822396594875318481}
 --- !u!114 &787211444
@@ -522,7 +522,7 @@ MonoBehaviour:
   debugMaterial: {fileID: 2100000, guid: 2d2db4c4fed294f37b58a496d7212c18, type: 2}
   baseForm: {fileID: 1317677322}
   numVertsPerHair: 4
-  length: 0.1
+  length: 0.3
   variance: 1111
   lineDebugMaterial: {fileID: 2100000, guid: f1f63776814044a26b4b2b64672ffd72, type: 2}
   numHairs: 0
@@ -664,7 +664,7 @@ MonoBehaviour:
   dying: 0
   died: 0
   destroyed: 1
-  debug: 1
+  debug: 0
   active: 1
   stifle: 0
   Cycles: []
@@ -676,7 +676,7 @@ MonoBehaviour:
   totalMemory: 0
   debugMaterial: {fileID: 2100000, guid: 736858b3c1ea8734084801ae875826ab, type: 2}
   mesh: {fileID: 822396594888920516}
-  noiseType: fractal
+  noiseType: even
   noiseSize: 10
 --- !u!114 &1317677323
 MonoBehaviour:
@@ -925,7 +925,7 @@ MonoBehaviour:
   died: 0
   destroyed: 1
   debug: 0
-  active: 0
+  active: 1
   stifle: 0
   Cycles: []
   auto: 0
@@ -976,13 +976,13 @@ MonoBehaviour:
   triangles: {fileID: 1988220157}
   transfer: {fileID: 1988220161}
   body: {fileID: 1988220159}
-  showBody: 0
+  showBody: 1
   skeleton: {fileID: 787211448}
   cam: {fileID: 0}
   right: {x: 0, y: 0, z: 0}
   up: {x: 0, y: 0, z: 0}
   forward: {x: 0, y: 0, z: 0}
-  radius: 0.04
+  radius: 0.4
 --- !u!114 &1988220161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1749,7 +1749,7 @@ MonoBehaviour:
   triangles: {fileID: 822396594875318471}
   transfer: {fileID: 822396594875318467}
   body: {fileID: 822396594875318473}
-  showBody: 0
+  showBody: 1
   skeleton: {fileID: 822396594875318465}
   cam: {fileID: 0}
   right: {x: 0, y: 0, z: 0}
