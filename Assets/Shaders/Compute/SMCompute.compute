@@ -1,0 +1,60 @@
+﻿#pragma kernel WHEE
+
+struct Vert{
+  float3 pos;
+  float3 vel;
+  float3 nor;
+  float3 tang;
+  float2 uv;
+  float life;
+  float debug;
+};
+
+
+
+
+float4x4 _Transform;
+
+RWStructuredBuffer<Vert> _VertBuffer;
+int _VertBuffer_COUNT;
+
+#include "../Chunks/safeID.cginc"
+#include "../Chunks/hash.cginc"
+
+
+float _Time;
+// Dont touch start ----------------
+#define NR_THREADS 128
+[numthreads(NR_THREADS,1,1)]
+void WHEE(uint threadID : SV_GroupIndex, uint3 u3GroupID : SV_GroupID) {
+
+  int pID = threadID + u3GroupID.x * NR_THREADS;
+  pID = safeID(pID,_VertBuffer_COUNT);
+
+// Dont touch end ----------------  
+  
+  Vert vert = _VertBuffer[pID];
+
+
+  if( vert.life <= 0 ){
+    
+    vert.life = 1;//hash( float(pID) );
+    
+    float x = hash( float(pID * 2) + _Time);
+    float y = hash( float(pID * 3) + _Time);
+    float z = hash( float(pID * 4) + _Time);
+
+    float3 fPos = float3(x,y,z);
+
+
+    vert.pos =mul( _Transform , float4( fPos , 1)); 
+  
+  }else{
+    vert.life -= .01;// * hash(float(pID));
+  }
+
+
+  
+  _VertBuffer[pID] = vert;
+
+}
