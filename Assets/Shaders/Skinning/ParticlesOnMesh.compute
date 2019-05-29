@@ -34,6 +34,7 @@ struct SkeletonVert{
 RWStructuredBuffer<Vert> _VertBuffer;
 RWStructuredBuffer<SkeletonVert> _SkeletonBuffer;
 
+float4x4 _Transform;
 
 #define NR_THREADS 128
 [numthreads(NR_THREADS,1,1)]
@@ -68,11 +69,11 @@ void PlacePoint(uint threadID : SV_GroupIndex, uint3 u3GroupID : SV_GroupID) {
 
 
 
-  vert.nor = normalize(fNor);
-  vert.tang = fTan;
   vert.uv = fUV;
 
-  vert.pos = fPos;
+  vert.pos = mul(_Transform , float4(fPos,1)).xyz;
+  vert.nor = mul(_Transform , float4(normalize(fNor),0)).xyz;
+  vert.tang = mul(_Transform , float4(normalize(fTan),0)).xyz;
  
 
   _VertBuffer[pID] = vert;

@@ -1211,7 +1211,7 @@ MonoBehaviour:
   debugMaterial: {fileID: 2100000, guid: e53b1de52078b4c138939019530d32fa, type: 2}
   mesh: {fileID: 0}
   mf: {fileID: 858367615}
-  transformVerts: 1
+  transformVerts: 0
 --- !u!135 &858367613
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1444,6 +1444,7 @@ GameObject:
   - component: {fileID: 1608996903}
   - component: {fileID: 1608996901}
   - component: {fileID: 1608996904}
+  - component: {fileID: 1608996905}
   m_Layer: 0
   m_Name: ParticlesOnMesh
   m_TagString: Untagged
@@ -1499,7 +1500,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608996900}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1654346, y: -3.0334415, z: -3.4376135}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 346385837}
@@ -1537,6 +1538,7 @@ MonoBehaviour:
   stifle: 0
   Cycles:
   - {fileID: 346385831}
+  - {fileID: 1608996905}
   auto: 0
   Lifes: []
   Forms: []
@@ -1579,6 +1581,39 @@ MonoBehaviour:
   kernelName: PlacePoint
   kernel: 0
   executionTime: 0
+--- !u!114 &1608996905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608996900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995dd40992704e6419daaa03fd23713a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  created: 0
+  begunGestation: 0
+  gestating: 0
+  gestated: 0
+  begunBirth: 0
+  birthing: 0
+  birthed: 0
+  begunLive: 0
+  living: 0
+  lived: 0
+  begunDeath: 0
+  dying: 0
+  died: 0
+  destroyed: 1
+  debug: 0
+  active: 1
+  stifle: 0
+  Cycles: []
+  toBind: {fileID: 1608996904}
+  t: {fileID: 858367616}
+  transformFloats: []
 --- !u!1 &1944253738
 GameObject:
   m_ObjectHideFlags: 0
